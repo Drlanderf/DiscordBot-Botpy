@@ -1,0 +1,43 @@
+from pathlib import Path
+
+import aiosqlite
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS messages_envoyes (
+    nom        TEXT PRIMARY KEY,   -- ex: "roles_jeux"
+    salon_id   INTEGER NOT NULL,
+    message_id INTEGER NOT NULL
+);
+"""
+
+
+class Database:
+    def __init__(self, chemin: Path):
+        self.chemin = chemin
+        self.conn = None
+
+    async def connecter(self):
+        self.conn = await aiosqlite.connect(self.chemin)
+        await self.conn.execute(SCHEMA)
+        await self.conn.commit()
+
+    async def fermer(self):
+        if self.conn:
+            await self.conn.close()
+
+    async def sauvegarder_message(self, nom: str, salon_id: int, message_id: int):
+        # Crée la ligne, ou la remplace si ce nom existe déjà
+        await self.conn.execute(
+            "INSERT INTO messages_envoyes (nom, salon_id, message_id) VALUES (?, ?, ?) "
+            "ON CONFLICT(nom) DO UPDATE SET salon_id = excluded.salon_id, "
+            "message_id = excluded.message_id",
+            (nom, salon_id, message_id),
+        )
+        await self.conn.commit()
+
+    async def lire_message(self, nom: str):
+        async with self.conn.execute(
+            "SELECT salon_id, message_id FROM messages_envoyes WHERE nom = ?", (nom,)
+        ) as curseur:
+            ligne = await curseur.fetchone()
+        return (ligne[0], ligne[1]) if ligne else None

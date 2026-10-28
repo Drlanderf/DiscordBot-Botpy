@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="594f246c-cf10-4de4-b3ea-ec13e1d2ff6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/_Discord-Botpy.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/commands/debug/ping.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/commands/reseaux.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/commands/roles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/commands/say.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/commands/tools/reload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/events/members/join.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/events/members/leave.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/events/ready.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cogs/tasks/compteur.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/button/role.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/modal/say.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.example.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/embeds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/formatage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/logs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/messages.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DBNavigator.Project.Workspace.Settings">
+    <assistant-settings>
+      <credential-settings>
+        <credentials />
+      </credential-settings>
+      <profile-settings>
+        <profiles />
+      </profile-settings>
+      <mcp-server-settings>
+        <workspace-integration value="false" />
+        <mcp-servers />
+        <mcp-tool-approvals />
+      </mcp-server-settings>
+    </assistant-settings>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LKrAjhTYDyAWTtJPBJ1fNlKdWf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\data.user\Documents\_PERSO\_PROJET\_DEV\_Discord-Botpy\cogs\events" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-73a66231627c-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10968.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="594f246c-cf10-4de4-b3ea-ec13e1d2ff6a" name="Changes" comment="" />
+      <created>1793213458261</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793213458261</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

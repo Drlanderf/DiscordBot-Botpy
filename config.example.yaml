@@ -1,0 +1,71 @@
+# Copié automatiquement dans le dossier de données au premier lancement.
+# Modifie-le, puis tape /reload sur Discord pour appliquer sans redémarrer.
+salons:
+  compteur_vocal: 0     # ID du salon vocal "👥・## membres"
+  logs: 0
+
+reseaux:
+  titre: "MES RÉSEAUX"
+  description: "N'oublie pas de me suivre sur mes réseaux sociaux et ainsi me donner de la force !"
+  couleur: "#9146FF"
+  miniature: "https://exemple.com/avatar.png"   # petite image en haut à droite (optionnel)
+  image: "https://exemple.com/banniere.png"     # grande image en bas (optionnel)
+  champs:
+    - nom: "🟣 Twitch"
+      valeur: "[TonPseudo](https://twitch.tv/TonPseudo)"
+    - nom: "🔴 YouTube"
+      valeur: "[Chaîne principale](https://youtube.com/@TonPseudo)"
+    - nom: "🔴 YouTube (2)"
+      valeur: "[Seconde chaîne](https://youtube.com/@TaSecondeChaine)"
+    - nom: "⚫ TikTok"
+      valeur: "[@TonPseudo](https://tiktok.com/@TonPseudo)"
+    - nom: "🔵 Twitter"
+      valeur: "[@TonPseudo](https://twitter.com/TonPseudo)"
+    - nom: "⚪ Discord"
+      valeur: "[Rejoins-nous](https://discord.gg/TonInvitation)"
+
+groupes_roles:
+  jeux:
+    titre: "🎮 TES JEUX"
+    description: "Clique sur un bouton pour ajouter ou retirer le rôle d'un jeu. test 2"
+    couleur: "#5865F2"
+    roles:
+      - nom: "Warframe"
+        role_id: 123456789012345678
+        emoji: "🥷"
+      - nom: "Minecraft"
+        role_id: 123456789012345679
+        emoji: "⛏️"
+      - nom: "Helldivers 2"
+        role_id: 123456789012345680
+        emoji: "🪖"
+      - nom: "PoE 1 & 2"
+        role_id: 123456789012345681
+        emoji: "⚔️"
+
+  centres_interet:
+    titre: "📌 TES CENTRES D'INTÉRÊT"
+    description: "Tu peux choisir les deux."
+    couleur: "#57F287"
+    roles:
+      - nom: "Games"
+        role_id: 123456789012345682
+        emoji: "🎮"
+      - nom: "Tech"
+        role_id: 123456789012345683
+        emoji: "💻"
+
+  notifications:
+    titre: "🔔 NOTIFICATIONS"
+    description: "Choisis ce dont tu veux être prévenu. test 1"
+    couleur: "#ED4245"
+    roles:
+      - nom: "YouTube Tech"
+        role_id: 123456789012345684
+        emoji: "💻"
+      - nom: "YouTube Gaming"
+        role_id: 123456789012345685
+        emoji: "🎮"
+      - nom: "Twitch"
+        role_id: 123456789012345686
+        emoji: "🟣"
