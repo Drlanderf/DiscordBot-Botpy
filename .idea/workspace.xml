@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="594f246c-cf10-4de4-b3ea-ec13e1d2ff6a" name="Changes" comment="👷 Add CI">
-      <change afterPath="$PROJECT_DIR$/.github/template/release-template.yml" afterDir="false" />
+    <list default="true" id="594f246c-cf10-4de4-b3ea-ec13e1d2ff6a" name="Changes" comment="💾 Save a project">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/Auto-Release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/Discord-Bot_Release_docker-image.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,15 +106,7 @@
       <option name="project" value="LOCAL" />
       <updated>1793225311414</updated>
     </task>
-    <task id="LOCAL-00002" summary="👷 Add CI">
-      <option name="closed" value="true" />
-      <created>1793226179039</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1793226179039</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,7 +114,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=" Save a project" />
-    <MESSAGE value=" Add CI" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Add CI" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Save a project" />
   </component>
 </project>
