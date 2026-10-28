@@ -4,36 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="594f246c-cf10-4de4-b3ea-ec13e1d2ff6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/_Discord-Botpy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/commands/debug/ping.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/commands/reseaux.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/commands/roles.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/commands/say.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/commands/tools/reload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/events/members/join.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/events/members/leave.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/events/ready.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/tasks/compteur.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/button/role.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/modal/say.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.example.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/embeds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/formatage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/logs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/messages.py" afterDir="false" />
+    <list default="true" id="594f246c-cf10-4de4-b3ea-ec13e1d2ff6a" name="Changes" comment="💾 Save a project">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/Auto-Release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/Discord-Bot_Release_docker-image.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +39,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Drlanderf"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Drlanderf/DiscordBot-Botpy.git",
+    "accountId": "59182f24-413a-47d5-b71e-43ba074c111b"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8,
   &quot;fromUser&quot;: false
@@ -112,9 +98,22 @@
       <option name="presentableId" value="Default" />
       <updated>1793213458261</updated>
     </task>
+    <task id="LOCAL-00001" summary="💾 Save a project">
+      <option name="closed" value="true" />
+      <created>1793225311414</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1793225311414</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" Save a project" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Save a project" />
   </component>
 </project>
