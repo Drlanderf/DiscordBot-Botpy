@@ -75,4 +75,24 @@ twitch:
   salon_id: 123456789012345678   # salon où annoncer le live
   role_id: 123456789012345679    # rôle à mentionner (celui de ton groupe "Twitch")
   ping: true                     # true = mentionne le rôle, false = annonce sans mentionner personne
-  message: "{role}, **{nom}** est en live sur : **{jeu}** !"
+  message: "{role}, **{nom}** est en live sur : **{jeu}** !\n <{lien}>"
+
+youtube:
+  salon_id: 123456789012345678     # salon d'annonces commun aux deux chaînes
+  ping: true                       # false = annonces sans mentionner personne
+  ping_live: false         # mentionner le rôle pour les lives (false = annonce sans mention)
+  annonces_live: false      # false = ne jamais annoncer les lives YouTube
+  short_duree_max: 60      # durée max (en secondes) d'un Short. 0 = ne rien traiter comme un Short
+  message_video: "{role}, **{nom}** vient de publier une nouvelle vidéo, Laisse un like et un commentaire ! \n<{lien}>"
+  message_live: "{role}, **{nom}** est en live sur YouTube : \n<{lien}>"
+  chaines:
+    - nom: "Tech"
+      channel_id: "UCxxxxxxxxxxxxxxxxxxxxxx"
+      role_id: 123456789012345679   # ton rôle "YouTube Tech"
+    - nom: "Gaming"
+      channel_id: "UCyyyyyyyyyyyyyyyyyyyyyy"
+      role_id: 123456789012345680   # ton rôle "YouTube Gaming"
+      # Réglages facultatifs pour cette chaîne seulement :
+      # salon_id: 123456789012345681
+      # ping: false
+      # message_video: "..."
