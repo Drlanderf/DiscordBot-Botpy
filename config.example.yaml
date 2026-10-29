@@ -69,3 +69,10 @@ groupes_roles:
       - nom: "Twitch"
         role_id: 123456789012345686
         emoji: "🟣"
+
+twitch:
+  chaine: "tonpseudo"            # le pseudo de l'URL twitch.tv/tonpseudo
+  salon_id: 123456789012345678   # salon où annoncer le live
+  role_id: 123456789012345679    # rôle à mentionner (celui de ton groupe "Twitch")
+  ping: true                     # true = mentionne le rôle, false = annonce sans mentionner personne
+  message: "{role}, **{nom}** est en live sur : **{jeu}** !"
