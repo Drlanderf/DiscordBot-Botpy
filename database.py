@@ -4,9 +4,13 @@ import aiosqlite
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS messages_envoyes (
-    nom        TEXT PRIMARY KEY,   -- ex: "roles_jeux"
+    nom        TEXT PRIMARY KEY,
     salon_id   INTEGER NOT NULL,
     message_id INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS etat (
+    cle    TEXT PRIMARY KEY,
+    valeur TEXT NOT NULL
 );
 """
 
@@ -18,7 +22,7 @@ class Database:
 
     async def connecter(self):
         self.conn = await aiosqlite.connect(self.chemin)
-        await self.conn.execute(SCHEMA)
+        await self.conn.executescript(SCHEMA)  # executescript : il y a maintenant 2 tables
         await self.conn.commit()
 
     async def fermer(self):
@@ -26,7 +30,6 @@ class Database:
             await self.conn.close()
 
     async def sauvegarder_message(self, nom: str, salon_id: int, message_id: int):
-        # Crée la ligne, ou la remplace si ce nom existe déjà
         await self.conn.execute(
             "INSERT INTO messages_envoyes (nom, salon_id, message_id) VALUES (?, ?, ?) "
             "ON CONFLICT(nom) DO UPDATE SET salon_id = excluded.salon_id, "
@@ -41,3 +44,17 @@ class Database:
         ) as curseur:
             ligne = await curseur.fetchone()
         return (ligne[0], ligne[1]) if ligne else None
+
+    # --- petite mémoire clé/valeur (ex: dernier live annoncé) ---
+    async def lire_etat(self, cle: str):
+        async with self.conn.execute("SELECT valeur FROM etat WHERE cle = ?", (cle,)) as curseur:
+            ligne = await curseur.fetchone()
+        return ligne[0] if ligne else None
+
+    async def ecrire_etat(self, cle: str, valeur: str):
+        await self.conn.execute(
+            "INSERT INTO etat (cle, valeur) VALUES (?, ?) "
+            "ON CONFLICT(cle) DO UPDATE SET valeur = excluded.valeur",
+            (cle, valeur),
+        )
+        await self.conn.commit()
