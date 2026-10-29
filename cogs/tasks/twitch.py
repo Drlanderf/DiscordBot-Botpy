@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import datetime
 
 import discord
 from discord.ext import commands, tasks
@@ -33,10 +34,15 @@ class Twitch(commands.Cog):
         lien = f"https://www.twitch.tv/{stream['user_login']}"
         avatar = profil["profile_image_url"] if profil else None
 
+        # Date de début du live (fournie par Twitch). Sans elle (commande de test), on prend l'heure actuelle.
+        debut = stream.get("started_at")
+        date = datetime.fromisoformat(debut.replace("Z", "+00:00")) if debut else discord.utils.utcnow()
+
         embed = discord.Embed(
             title=stream["title"] or "En direct !",
             url=lien,
             color=discord.Color.from_str("#9146FF"),  # violet Twitch
+            timestamp=date,
         )
         embed.set_author(name=stream["user_name"], url=lien, icon_url=avatar)
         if avatar:
@@ -48,7 +54,8 @@ class Twitch(commands.Cog):
         apercu = stream["thumbnail_url"].replace("{width}", "620").replace("{height}", "378")
         embed.set_image(url=f"{apercu}?t={int(time.time())}")
 
-        embed.set_footer(text=str(self.bot.user), icon_url=self.bot.user.display_avatar.url)
+        # Discord ajoute " • date heure" après ce texte grâce au timestamp ci-dessus
+        embed.set_footer(text="Twitch")
         return embed
 
     async def envoyer_annonce(self, salon, stream: dict, profil: dict | None, ping: bool = True):
@@ -63,10 +70,12 @@ class Twitch(commands.Cog):
                 role=role.mention if role else "",
                 nom=stream["user_name"],
                 jeu=stream["game_name"] or "un jeu inconnu",
+                lien=f"https://www.twitch.tv/{stream['user_login']}",  # nouvelle variable
             )
         except (KeyError, IndexError, ValueError) as erreur:
             raise ValueError(
-                "'message' invalide dans config.yaml (variables autorisées : {role} {nom} {jeu})"
+                "'message' invalide dans config.yaml "
+                "(variables autorisées : {role} {nom} {jeu} {lien})"
             ) from erreur
 
         await salon.send(
