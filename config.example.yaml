@@ -96,3 +96,17 @@ youtube:
       # salon_id: 123456789012345681
       # ping: false
       # message_video: "..."
+
+botban:
+  salon_id: 123456789012345678     # le salon piège
+  salon_logs: 0                    # facultatif : salon de logs dédié (0 = utilise salons.logs)
+  purge_heures: 24                 # supprime les messages du banni sur les X dernières heures (0 à 168)
+  titre: "🚫 Poster dans ce salon vous fera ban automatiquement, instantanément et de façon permanente"
+  description: |-
+    Ce salon sert **uniquement à piéger les bots de spam**.
+
+    • Tout message envoyé ici, autre que celui-ci, est **supprimé automatiquement** et son auteur est **banni**.
+    • Le staff **ne traitera aucune demande de débannissement** après un ban dans ce salon.
+
+    Si vous êtes un vrai membre : **n'écrivez rien ici**.
+  couleur: "#ED4245"
