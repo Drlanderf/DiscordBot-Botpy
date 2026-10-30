@@ -17,6 +17,8 @@ class YouTube(commands.Cog):
         self.bot = bot
         self.api = None
         self.avatars = {}  # cache : channel_id -> url de l'avatar
+        self.verifs = {}   # nom de la chaîne -> date du dernier passage réussi
+        self.erreurs = {}  # nom de la chaîne -> dernière erreur (absente si tout va bien)
 
     async def cog_load(self):
         cle = os.getenv("YOUTUBE_API_KEY")
@@ -185,10 +187,15 @@ class YouTube(commands.Cog):
     async def verifier(self):
         cfg = self.bot.config.get("youtube", default={}) or {}
         for chaine in cfg.get("chaines", []) or []:
+            nom = chaine.get("nom", "?")
             try:
                 await self.verifier_chaine(cfg, chaine)
             except Exception as erreur:  # une chaîne en erreur ne bloque pas l'autre
-                print(f"[YOUTUBE] {chaine.get('nom', '?')} : {erreur}")
+                self.erreurs[nom] = str(erreur)
+                print(f"[YOUTUBE] {nom} : {erreur}")
+            else:
+                self.verifs[nom] = discord.utils.utcnow()
+                self.erreurs.pop(nom, None)
 
     @verifier.before_loop
     async def avant_demarrage(self):

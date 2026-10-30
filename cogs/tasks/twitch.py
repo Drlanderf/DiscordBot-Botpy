@@ -14,6 +14,8 @@ class Twitch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.api = None
+        self.derniere_verif = None   # date du dernier passage réussi (affichée par /status)
+        self.derniere_erreur = None  # dernier message d'erreur, ou None si tout va bien
 
     async def cog_load(self):
         client_id = os.getenv("TWITCH_CLIENT_ID")
@@ -97,8 +99,12 @@ class Twitch(commands.Cog):
         try:
             stream = await self.api.stream(chaine)
         except Exception as erreur:  # réseau coupé, identifiants faux...
+            self.derniere_erreur = str(erreur)
             print(f"[TWITCH] requête impossible : {erreur}")
             return
+
+        self.derniere_verif = discord.utils.utcnow()
+        self.derniere_erreur = None
 
         if stream is None:
             return  # hors ligne
