@@ -26,44 +26,109 @@
 
 - Be sure to follow the versioning syntax already in place using gitmoji.dev
 
-## 📝 documentation :
+## 📝 Documentation :
 
 - This discord bot actualy don't have wiki, it will be done later...
 
-	## 🗺️ RoadMap :
-    - [X] Twitch Notification
-    - [X] Youtube Notification
-    - [X] Honeypot channel (botban)
-    - [X] Bot Status command (/status)
-    - [X] Talk as bot command (/say)
-    - [X] Reloading configuration (/reload)
-    - [X] Member counter
-    - [X] Role Picker with dynamic update (/roles)
-    - [X] Logging for few element (more element in the future)
-    - [ ] Basic moderation command (ban/kick/clear/timeout)
-    - [ ] Easter Egg ?
-    - [ ] Make a Wiki
-    - [ ] Ticket Management
-    - [ ] Twitter Notification
-    - [ ] TikTok Notification
-    - [ ] Instagram Notification (?)
-    - [ ] Embed Command
-    - [ ] Rules in embed
-    - [ ] Join/Leave Logging
-    - [ ] Giveway managment
-    - [ ] Survey managment
+## ⬇️ Deploy
+
+### Docker / Unraid
+
+```bash
+docker run -d --name botpy \
+  --restart unless-stopped \
+  --env-file .env \
+  -v /path/to/botpy-data:/data \
+  landerf/botpy:latest
+```
+
+On Unraid, map the container path `/data` to `/mnt/user/appdata/botpy/`.
+On first start, the bot creates `/data/config.yaml` from `config.example.yaml`.
+Edit that file, then use `/reload` in Discord (no restart needed).
+The SQLite database (`bot.db`) is stored in the same folder.
+
+### Environment variables
+
+| Variable | Required | Description |
+|---|---|---|
+| `DISCORD_TOKEN` | ✅ | Bot token |
+| `GUILD_ID` | | Server ID: slash commands sync instantly (dev) |
+| `DATA_DIR` | | Data folder (`/data` in Docker) |
+| `TWITCH_CLIENT_ID` / `TWITCH_CLIENT_SECRET` | | Twitch live notifications |
+| `YOUTUBE_API_KEY` | | YouTube notifications |
+| `BOT_VERSION` / `BOT_COMMIT` | | Set by the CI, shown by `/status` |
+
+### Discord setup
+
+- Enable the privileged intents in the Developer Portal (the bot currently uses `Intents.all()`).
+- Invite the bot with the `bot` and `applications.commands` scopes.
+- Permissions: Manage Roles, Ban Members, Manage Channels, Manage Messages, View Channels, Send Messages, Embed Links.
+- The bot's role must be **above** the roles it manages.
+
+### Run locally
+
+```bash
+python -m venv .venv
+pip install -r requirements.txt
+cp .env.example .env   # then fill it in
+python bot.py
+```
+
+Python 3.12 is recommended (same as the Dockerfile).
+
+## 🕹️ Commands
+
+| Command | Description |
+|---|---|
+| `/ping` | Check that the bot responds |
+| `/say` | Send a message as the bot (form) |
+| `/reload` | Reload `config.yaml` and refresh sent embeds |
+| `/reseaux` | Send the social networks embed |
+| `/roles <group>` | Send a role picker (buttons) |
+| `/botban` | Send the honeypot warning |
+| `/status` | Version, latency, notification status |
+| `/debug_twitch`, `/debug_youtube`, `/debug_botban` | Test notifications without going live |
+
+All commands except `/ping` are admin-only.
+
+## 🗺️ RoadMap :
+- [X] Twitch Notification
+- [X] Youtube Notification
+- [X] Honeypot channel (botban)
+- [X] Bot Status command (/status)
+- [X] Talk as bot command (/say)
+- [X] Reloading configuration (/reload)
+- [X] Member counter
+- [X] Role Picker with dynamic update (/roles)
+- [X] Logging for few element (more element in the future)
+- [ ] Basic moderation command (ban/kick/clear/timeout)
+- [ ] Easter Egg ?
+- [ ] Make a Wiki
+- [ ] Ticket Management
+- [ ] Twitter Notification
+- [ ] TikTok Notification
+- [ ] Instagram Notification (?)
+- [ ] Embed Command
+- [ ] Rules in embed
+- [ ] Join/Leave Logging
+- [ ] Giveway managment
+- [ ] Survey managment
 
 
 
 ---
 
 <h3 align="center">
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-    <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+  <a href="https://polyformproject.org/licenses/noncommercial/1.0.0/">
+    <img
+      alt="Licence PolyForm Noncommercial"
+      style="border-width:0"
+      src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg"
+    />
   </a>
   <br />
-  Ce(tte) œuvre est mise à disposition selon les termes de la
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-    Licence Creative Commons Attribution - Pas d&#39;Utilisation Commerciale - Pas de Modification 4.0 International
-  </a>
+  This project is made available under the terms of the
+  <a href="https://polyformproject.org/licenses/noncommercial/1.0.0/">
+    Licence PolyForm Noncommercial 1.0.0
+  </a>.
 </h3>
