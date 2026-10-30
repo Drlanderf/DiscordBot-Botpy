@@ -27,4 +27,8 @@ def construire_embed(section: dict) -> discord.Embed:
             continue
         embed.add_field(name=str(nom), value=str(valeur), inline=champ.get("inline", True))
 
+    # Texte en bas de l'embed (optionnel), avec une petite icône (optionnelle)
+    if section.get("footer"):
+        embed.set_footer(text=str(section["footer"]), icon_url=section.get("footer_icone"))
+
     return embed

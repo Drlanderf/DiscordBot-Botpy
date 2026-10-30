@@ -28,6 +28,8 @@ groupes_roles:
   jeux:
     titre: "🎮 TES JEUX"
     description: "Clique sur un bouton pour ajouter ou retirer le rôle d'un jeu. test 2"
+    footer: "Tu peux changer de jeux à tout moment 🎮"
+    # footer_icone: "https://exemple.com/icone.png"   # facultatif
     couleur: "#5865F2"
     roles:
       - nom: "Warframe"
@@ -46,6 +48,8 @@ groupes_roles:
   centres_interet:
     titre: "📌 TES CENTRES D'INTÉRÊT"
     description: "Tu peux choisir les deux."
+    footer: "Games et Tech peuvent se cumuler"
+    # footer_icone: "https://exemple.com/icone.png"   # facultatif
     couleur: "#57F287"
     roles:
       - nom: "Games"
@@ -58,6 +62,8 @@ groupes_roles:
   notifications:
     titre: "🔔 NOTIFICATIONS"
     description: "Choisis ce dont tu veux être prévenu. test 1"
+    footer: "Un clic pour t'abonner, un deuxième pour te désabonner"
+    # footer_icone: "https://exemple.com/icone.png"   # facultatif
     couleur: "#ED4245"
     roles:
       - nom: "YouTube Tech"
