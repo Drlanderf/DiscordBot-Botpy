@@ -30,7 +30,7 @@
 
 - This discord bot actualy don't have wiki, it will be done later...
 
-## 🗺️ RoadMap :
+	## 🗺️ RoadMap :
     - [X] Twitch Notification
     - [X] Youtube Notification
     - [X] Honeypot channel (botban)
