@@ -49,6 +49,9 @@ jobs:
     - name: Build and push the Image. . .
       uses: docker/build-push-action@v3.2.0
       with:
-        build-args: --env-file .env.example up
+        build-args: |
+          BOT_VERSION=${{ steps.version_by_tag.outputs.tag }}
+          BOT_COMMIT=${{ github.sha }}
+          --env-file .env.example up
         push: true
         tags: landerf/botpy:latest,landerf/botpy:release_${{steps.version_by_tag.outputs.tag}}
