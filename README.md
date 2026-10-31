@@ -58,13 +58,6 @@ The SQLite database (`bot.db`) is stored in the same folder.
 | `YOUTUBE_API_KEY` | | YouTube notifications |
 | `BOT_VERSION` / `BOT_COMMIT` | | Set by the CI, shown by `/status` |
 
-### Discord setup
-
-- Enable the privileged intents in the Developer Portal (the bot currently uses `Intents.all()`).
-- Invite the bot with the `bot` and `applications.commands` scopes.
-- Permissions: Manage Roles, Ban Members, Manage Channels, Manage Messages, View Channels, Send Messages, Embed Links.
-- The bot's role must be **above** the roles it manages.
-
 ### Run locally
 
 ```bash
@@ -76,6 +69,55 @@ python bot.py
 
 Python 3.12 is recommended (same as the Dockerfile).
 
+### Discord setup
+
+**1. Developer Portal**
+
+- In the **Bot** tab, enable the three privileged intents: **Presence**, **Server Members** and **Message Content**
+  (the bot currently starts with `Intents.all()`).
+- Generate an invite link in **OAuth2 → URL Generator** with the scopes `bot` and `applications.commands`.
+
+**2. Permissions**
+
+| Permission | Used for |
+|---|---|
+| View Channels, Send Messages, Embed Links | Every embed and announcement |
+| Read Message History | `/clear` and updating embeds already sent |
+| Manage Messages | `/clear`, honeypot channel fallback |
+| Manage Roles | Role picker buttons |
+| Manage Channels | Member counter (renames the voice channel) |
+| Kick Members, Ban Members | `/kick`, `/ban`, `/warn` auto-ban, honeypot channel |
+| Moderate Members | `/timeout` |
+| Manage Server | Reading invites to show which one a new member used (join log) |
+| View Audit Log | Telling a voluntary leave from a kick or a ban (leave log) |
+| Mention Everyone, Here and All Roles | Role pings in notifications (not needed if the roles are mentionable) |
+
+Without **Manage Server**, join logs still work but show a "missing permission" notice instead of the invite.
+Without **View Audit Log**, every departure is logged as a plain "Departure".
+
+**3. Role hierarchy**
+
+The bot's role must be placed **above**:
+
+- the roles of the role picker (otherwise "I don't have permission to manage this role"),
+- the members you want to moderate (the bot cannot sanction someone whose top role is higher than its own).
+
+Nobody can sanction the server owner, and Discord does not allow timeouts on administrators.
+
+**4. Channels**
+
+| Channel | Setup |
+|---|---|
+| Log channels (`salons.logs`, `journal.salon_id`, `moderation.salon_logs`, `botban.salon_logs`) | Staff only. The bot needs View Channel, Send Messages and Embed Links |
+| Honeypot channel (`botban.salon_id`) | Visible and writable by `@everyone`, otherwise it traps nobody |
+| Member counter (`salons.compteur_vocal`) | Voice channel. Deny **Connect** to `@everyone`, and give the bot **Manage Channels** on it |
+| Announcement channels (Twitch / YouTube) | The bot needs Send Messages and Embed Links, plus the right to mention the notification roles |
+
+**5. Command visibility**
+
+Admin-only commands are hidden from other members by Discord. Moderation commands (`/clear`, `/kick`, `/timeout`,
+`/ban`, `/warn`, `/warns`, `/baninfo`) stay visible but are refused to anyone outside `moderation.roles`.
+To hide them too, restrict them in **Server Settings → Integrations → your bot**.
 ## 🕹️ Commands
 
 ### General
