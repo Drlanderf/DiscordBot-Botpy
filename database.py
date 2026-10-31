@@ -12,6 +12,11 @@ CREATE TABLE IF NOT EXISTS etat (
     cle    TEXT PRIMARY KEY,
     valeur TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS arrivees (
+    user_id    INTEGER PRIMARY KEY,
+    code       TEXT NOT NULL,
+    inviter_id INTEGER
+);
 """
 
 
@@ -22,7 +27,7 @@ class Database:
 
     async def connecter(self):
         self.conn = await aiosqlite.connect(self.chemin)
-        await self.conn.executescript(SCHEMA)  # executescript : il y a maintenant 2 tables
+        await self.conn.executescript(SCHEMA)
         await self.conn.commit()
 
     async def fermer(self):
@@ -57,4 +62,24 @@ class Database:
             "ON CONFLICT(cle) DO UPDATE SET valeur = excluded.valeur",
             (cle, valeur),
         )
+        await self.conn.commit()
+
+    # --- invitation utilisée par chaque membre (pour le log de départ) ---
+    async def sauvegarder_arrivee(self, user_id: int, code: str, inviter_id):
+        await self.conn.execute(
+            "INSERT INTO arrivees (user_id, code, inviter_id) VALUES (?, ?, ?) "
+            "ON CONFLICT(user_id) DO UPDATE SET code = excluded.code, inviter_id = excluded.inviter_id",
+            (user_id, code, inviter_id),
+        )
+        await self.conn.commit()
+
+    async def lire_arrivee(self, user_id: int):
+        async with self.conn.execute(
+            "SELECT code, inviter_id FROM arrivees WHERE user_id = ?", (user_id,)
+        ) as curseur:
+            ligne = await curseur.fetchone()
+        return (ligne[0], ligne[1]) if ligne else None
+
+    async def supprimer_arrivee(self, user_id: int):
+        await self.conn.execute("DELETE FROM arrivees WHERE user_id = ?", (user_id,))
         await self.conn.commit()
