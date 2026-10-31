@@ -116,3 +116,7 @@ botban:
 
     Si vous êtes un vrai membre : **n'écrivez rien ici**.
   couleur: "#ED4245"
+
+journal:
+  salon_id: 123456789012345678   # salon staff des arrivées/départs (0 ou absent = salons.logs)
+  compte_recent_jours: 7         # affiche ⚠️ si le compte a moins de X jours (0 = désactivé)
