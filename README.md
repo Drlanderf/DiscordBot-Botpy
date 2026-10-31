@@ -78,18 +78,49 @@ Python 3.12 is recommended (same as the Dockerfile).
 
 ## 🕹️ Commands
 
+### General
+
+| Command | Description | Access |
+|---|---|---|
+| `/ping` | Check that the bot responds | Everyone |
+| `/say` | Send a message as the bot (form) | Admins |
+| `/reload` | Reload `config.yaml` and refresh the embeds already sent | Admins |
+| `/status` | Version, latency, Twitch/YouTube status | Admins |
+| `/reseaux` | Send the social networks embed | Admins |
+| `/roles <group>` | Send a role picker (buttons with live counters) | Admins |
+| `/botban` | Send the honeypot channel warning | Admins |
+
+### Moderation
+
+Available to administrators and to the roles listed in `moderation.roles` (`config.yaml`).
+Every action is logged, with its reason, in the `moderation.salon_logs` channel.
+
 | Command | Description |
 |---|---|
-| `/ping` | Check that the bot responds |
-| `/say` | Send a message as the bot (form) |
-| `/reload` | Reload `config.yaml` and refresh sent embeds |
-| `/reseaux` | Send the social networks embed |
-| `/roles <group>` | Send a role picker (buttons) |
-| `/botban` | Send the honeypot warning |
-| `/status` | Version, latency, notification status |
-| `/debug_twitch`, `/debug_youtube`, `/debug_botban` | Test notifications without going live |
+| `/clear <number> [reason]` | Delete up to 100 recent messages in the current channel (pinned messages and messages older than 13 days are skipped) |
+| `/kick <member> <reason>` | Kick a member (they can come back) |
+| `/timeout <member> <duration> <reason>` | Mute a member from 5 minutes up to 7 days |
+| `/ban <member> <reason> [purge_hours]` | Ban a member, bypassing the warning system |
+| `/warn <member> <reason>` | Give a warning. At `moderation.seuil_avertissements` warnings (3 by default), the member is banned automatically |
+| `/warns <user>` | List a user's warnings (none if the user is not in the database) |
+| `/baninfo <user>` | Explain why someone was banned: manual `/ban` + reason, or automatic ban + the list of warnings |
 
-All commands except `/ping` are admin-only.
+Ban reasons are also written in Discord's own ban list, and the bot keeps one small row per banned
+user in its database. Warnings are moved into that row when the ban happens, so they never pile up.
+
+### Debug (admins)
+
+These commands send test messages without waiting for a real event and without banning anyone.
+
+| Command | Description |
+|---|---|
+| `/debug_twitch` | Simulate a Twitch live announcement |
+| `/debug_youtube` | Simulate a YouTube video, Short or live announcement |
+| `/debug_botban` | Send a fake honeypot log |
+| `/debug_journal` | Send a fake join/leave log |
+
+Admin-only commands are hidden from other members by Discord. Moderation commands are visible to everyone
+but refused to anyone who is not part of the moderation team.
 
 ## 🗺️ RoadMap :
 - [X] Twitch Notification
@@ -101,7 +132,7 @@ All commands except `/ping` are admin-only.
 - [X] Member counter
 - [X] Role Picker with dynamic update (/roles)
 - [X] Logging for few element (more element in the future)
-- [ ] Basic moderation command (ban/kick/clear/timeout)
+- [X] Basic moderation command (ban/kick/clear/timeout)
 - [ ] Easter Egg ?
 - [ ] Make a Wiki
 - [ ] Ticket Management
@@ -110,7 +141,7 @@ All commands except `/ping` are admin-only.
 - [ ] Instagram Notification (?)
 - [ ] Embed Command
 - [ ] Rules in embed
-- [ ] Join/Leave Logging
+- [X] Join/Leave Logging
 - [ ] Giveway managment
 - [ ] Survey managment
 
