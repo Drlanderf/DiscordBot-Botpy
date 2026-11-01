@@ -20,7 +20,7 @@ jobs:
       contents: write        # nécessaire pour créer/mettre à jour le brouillon de release
       pull-requests: read    # lecture des PR fusionnées
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: release-drafter/release-drafter@v7.10.0
         with:
