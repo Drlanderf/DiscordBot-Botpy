@@ -1,0 +1,30 @@
+{
+  "commands": {
+    "Check that the bot is responding": "Vérifie que le bot répond",
+    "Send a message as the bot": "Envoyer un message en tant que bot",
+    "socials": "reseaux",
+    "Send the social networks embed": "Envoie l'embed des réseaux sociaux",
+    "Reload the config.yaml file": "Recharge le fichier config.yaml"
+  },
+  "messages": {
+    "common.send_failed": "❌ Envoi impossible : {error}",
+
+    "ping.reply": "🏓 Pong ! ({ms} ms)",
+
+    "say.modal.title": "Parler en tant que bot",
+    "say.modal.label": "Message à envoyer",
+    "say.modal.placeholder": "Écris ton message ici...",
+    "say.forbidden": "❌ Je n'ai pas la permission d'écrire dans ce salon.",
+    "say.sent": "✅ Message envoyé.",
+    "say.log.title": "📢 Commande /say utilisée",
+    "say.log.author": "Auteur",
+    "say.log.channel": "Salon",
+    "say.log.footer": "Commande /say",
+
+    "socials.missing_section": "❌ La section `reseaux` est absente de config.yaml.",
+    "socials.sent": "✅ Embed envoyé.",
+
+    "reload.yaml_error": "❌ Erreur dans config.yaml, rien n'a été rechargé :\n```{error}```",
+    "reload.done": "✅ Config rechargée (langue : {language})."
+  }
+}

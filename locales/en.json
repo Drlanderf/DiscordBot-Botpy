@@ -1,0 +1,23 @@
+{
+  "messages": {
+    "common.send_failed": "❌ Could not send the message: {error}",
+
+    "ping.reply": "🏓 Pong! ({ms} ms)",
+
+    "say.modal.title": "Speak as the bot",
+    "say.modal.label": "Message to send",
+    "say.modal.placeholder": "Write your message here...",
+    "say.forbidden": "❌ I don't have permission to write in this channel.",
+    "say.sent": "✅ Message sent.",
+    "say.log.title": "📢 /say command used",
+    "say.log.author": "Author",
+    "say.log.channel": "Channel",
+    "say.log.footer": "/say command",
+
+    "socials.missing_section": "❌ The `reseaux` section is missing from config.yaml.",
+    "socials.sent": "✅ Embed sent.",
+
+    "reload.yaml_error": "❌ Error in config.yaml, nothing was reloaded:\n```{error}```",
+    "reload.done": "✅ Config reloaded (language: {language})."
+  }
+}
