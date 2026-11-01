@@ -4,6 +4,8 @@ from pathlib import Path
 
 import yaml
 
+from utils.i18n import i18n
+
 # Le modèle de config qui est copié au premier lancement
 EXEMPLE = Path(__file__).parent / "config.example.yaml"
 
@@ -23,6 +25,9 @@ class Config:
             shutil.copy(EXEMPLE, self.chemin)
         with self.chemin.open(encoding="utf-8") as f:
             self.donnees = yaml.safe_load(f) or {}
+
+        # Langue des messages du bot : `language: fr` dans config.yaml (anglais par défaut)
+        i18n.set_language(self.get("language"))
 
     def get(self, *cles, default=None):
         # config.get("salons", "compteur_vocal") va chercher salons -> compteur_vocal

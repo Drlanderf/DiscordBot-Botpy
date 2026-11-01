@@ -5,6 +5,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 from config import Config
 from database import Database
+from utils.translator import CommandTranslator
 
 load_dotenv() # Chargement du .env
 
@@ -17,8 +18,9 @@ class Bot(commands.Bot):
     async def close(self):
         await self.db.fermer()   # ferme proprement la base à l'arrêt du bot
         await super().close()
-        
+
     async def setup_hook(self): # On charge les événements
+        await self.tree.set_translator(CommandTranslator())
         racine = Path(__file__).parent
         dossier_cogs = racine / "cogs"
         await self.db.connecter()

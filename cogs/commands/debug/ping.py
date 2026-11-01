@@ -2,15 +2,19 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
+from utils.i18n import t
+
 
 class Ping(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="ping", description="Vérifie que le bot répond")
+    # Le nom et la description sont en anglais (langue de base).
+    # Leur traduction française est dans locales/fr.json, section "commands".
+    @app_commands.command(name="ping", description="Check that the bot is responding")
     async def ping(self, interaction: discord.Interaction):
-        latence = round(self.bot.latency * 1000)  # latency est en secondes, on convertit en ms
-        await interaction.response.send_message(f"🏓 Pong ! ({latence} ms)", ephemeral=True)
+        latency = round(self.bot.latency * 1000)  # latency is in seconds, converted to ms
+        await interaction.response.send_message(t("ping.reply", ms=latency), ephemeral=True)
 
 
 async def setup(bot):
