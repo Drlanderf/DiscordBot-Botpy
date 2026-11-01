@@ -131,6 +131,9 @@ To hide them too, restrict them in **Server Settings → Integrations → your b
 | `/reseaux` | Send the social networks embed | Admins |
 | `/roles <group>` | Send a role picker (buttons with live counters) | Admins |
 | `/botban` | Send the honeypot channel warning | Admins |
+| `/embed creer` | Open the embed editor (live preview, fields, link buttons, JSON import/export) | Admins |
+| `/embed modifier <message>` | Edit a message sent by the bot (also: right-click the message → Apps → *Modifier embed*) | Admins |
+| `/embed importer <file>` | Create an embed from a JSON file | Admins |
 
 ### Moderation
 
@@ -146,6 +149,7 @@ Every action is logged, with its reason, in the `moderation.salon_logs` channel.
 | `/warn <member> <reason>` | Give a warning. At `moderation.seuil_avertissements` warnings (3 by default), the member is banned automatically |
 | `/warns <user>` | List a user's warnings (none if the user is not in the database) |
 | `/baninfo <user>` | Explain why someone was banned: manual `/ban` + reason, or automatic ban + the list of warnings |
+
 
 Ban reasons are also written in Discord's own ban list, and the bot keeps one small row per banned
 user in its database. Warnings are moved into that row when the ban happens, so they never pile up.
@@ -181,7 +185,7 @@ but refused to anyone who is not part of the moderation team.
 - [ ] Twitter Notification
 - [ ] TikTok Notification
 - [ ] Instagram Notification (?)
-- [ ] Embed Command
+- [X] Embed Command
 - [ ] Rules in embed
 - [X] Join/Leave Logging
 - [ ] Giveway managment
